@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ArticleCategoryController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\campaignController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboardController;
@@ -12,8 +15,10 @@ use App\Http\Controllers\mediaBerbagiController;
 use App\Http\Controllers\penggunaanDataController;
 use App\Http\Controllers\googleFontController;
 use App\Http\Controllers\hitungZakatController;
+use App\Http\Controllers\homeController;
 use App\Http\Controllers\kategoriController;
 use App\Http\Controllers\urutkanKategoriController;
+use App\Http\Controllers\urutkanProgramController;
 
 Route::get('/dashboard', function () {
     return view('admin.layout.main');
@@ -150,12 +155,12 @@ Route::get('/tranfun', function () {
     return view('admin.konten.fundraiser.transaksi');
 });
 
-Route::get('/slider', function () {
-    return view('admin.konten.webUtama.slider');
-});
-Route::get('/inputslider', function () {
-    return view('admin.konten.webUtama.inputslider');
-});
+// Route::get('/slider', function () {
+//     return view('admin.konten.webUtama.slider');
+// });
+// Route::get('/inputslider', function () {
+//     return view('admin.konten.webUtama.inputslider');
+// });
 
 Route::get('/partner', function () {
     return view('admin.konten.webUtama.partner');
@@ -164,19 +169,19 @@ Route::get('/inputpartner', function () {
     return view('admin.konten.webUtama.inputpartner');
 });
 
-Route::get('/katblog', function () {
-    return view('admin.konten.webUtama.katblog');
-});
-Route::get('/inputkatblog', function () {
-    return view('admin.konten.webUtama.inputkatblog');
-});
+// Route::get('/katblog', function () {
+//     return view('admin.konten.webUtama.katblog');
+// });
+// Route::get('/inputkatblog', function () {
+//     return view('admin.konten.webUtama.inputkatblog');
+// });
 
-Route::get('/blog', function () {
-    return view('admin.konten.webUtama.blog');
-});
-Route::get('/inputblog', function () {
-    return view('admin.konten.webUtama.inputblog');
-});
+// Route::get('/blog', function () {
+//     return view('admin.konten.webUtama.blog');
+// });
+// Route::get('/inputblog', function () {
+//     return view('admin.konten.webUtama.inputblog');
+// });
 
 Route::get('/kegiatan', function () {
     return view('admin.konten.webUtama.kegiatan');
@@ -191,9 +196,9 @@ Route::get('/konten', function () {
 
 //Front
 //front home
-Route::get('/', function () {
-    return view('front.konten.beranda.home');
-});
+// Route::get('/', function () {
+//     return view('front.konten.beranda.home');
+// });
 Route::get('/donasi-instan', function () {
     return view('front.konten.donasiInstan.donasiInstan');
 });
@@ -389,9 +394,9 @@ Route::get('/ubah-profile', function () {
 
 
 // User
-Route::get('/home', function () {
-    return view('user.home.index');
-});
+// Route::get('/home', function () {
+//     return view('user.home.index');
+// });
 
 // Route::get('/akun', function () {
 //     return view('front.konten.akun.main');
@@ -517,8 +522,18 @@ Route::get('/pembayaran', function () {
 
 
 //BE
-
+//ADMIN
 Route::resource('kategori', kategoriController::class);
 Route::resource('urutkan-kategori', urutkanKategoriController::class);
+Route::resource('urutkan-program', urutkanProgramController::class);
+Route::post('/campaigns/update-order', [campaignController::class, 'urutkanProgram'])->name('campaigns.updateOrder');
 Route::post('/categories/update-order', [kategoriController::class, 'updateOrder'])->name('categories.updateOrder');
 Route::resource('campaign', campaignController::class);
+Route::resource('banner', BannerController::class);
+Route::resource('articleCategory', ArticleCategoryController::class);
+Route::resource('article', ArticleController::class);
+
+
+//BE
+//USER
+Route::resource('/', homeController::class);

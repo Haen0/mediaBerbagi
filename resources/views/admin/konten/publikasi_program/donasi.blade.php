@@ -21,7 +21,7 @@
     <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <div class="flex flex-col p-5">
             <div class="flex justify-between">
-                <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="{{ asset('storage/' . $campaign->photo) }}" alt="{{ $campaign->title }}"/>
+                <img class="w-24 h-24 mb-3 rounded-full shadow-lg object-cover" src="{{ asset('storage/' . $campaign->photo) }}" alt="{{ $campaign->title }}"/>
                 <div class="flex items-start px-4 pt-4">
                     <button id="dropdownButton-{{ $campaign->title }}" data-dropdown-toggle="dropdown-{{ $campaign->title }}" class="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5" type="button">
                         <span class="sr-only">Open dropdown</span>
@@ -37,16 +37,20 @@
                                 <svg class="w-[15px] h-[15px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.779 17.779 4.36 19.918 6.5 13.5m4.279 4.279 8.364-8.643a3.027 3.027 0 0 0-2.14-5.165 3.03 3.03 0 0 0-2.14.886L6.5 13.5m4.279 4.279L6.499 13.5m2.14 2.14 6.213-6.504M12.75 7.04 17 11.28"/>
                                 </svg>
-                                <a href="#" class="pl-1 block text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Edit</a>
+                                <a href="{{ route('campaign.edit', $campaign->id) }}" class="pl-1 block text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Edit</a>
                             </div>
                         </li>
                         <li>
-                            <div class="flex items-center px-5">
-                                <svg class="w-[15px] h-[15px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
-                                </svg>
-                                <a href="#" class="pl-1 block text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
-                            </div>
+                            <form method="POST" action="{{ route('campaign.destroy', $campaign->id) }}">
+                                @csrf
+                                @method('DELETE')
+                                <div class="flex items-center px-5">
+                                    <svg class="w-[15px] h-[15px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
+                                    </svg>
+                                    <button type="submit" class="pl-1 block text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</button>
+                                </div>
+                            </form>
                         </li>
                         </ul>
                     </div>

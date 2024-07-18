@@ -86,7 +86,7 @@
                                     <a href="{{url('/urutkan-kategori')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Urutkan Kategori</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/pengaturan-program')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Urutkan Program</a>
+                                    <a href="{{url('/urutkan-program')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Urutkan Program</a>
                                 </li>
                             </ul>
                         </li>
@@ -201,16 +201,16 @@
                             </button>
                             <ul id="dropdown-web-utama" class="hidden py-2 space-y-2">
                                 <li>
-                                    <a href="{{url('/slider')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Slider</a>
+                                    <a href="{{url('/banner')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Slider</a>
                                 </li>
                                 <li>
                                     <a href="{{url('/partner')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Partner</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/katblog')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Kategori Blog</a>
+                                    <a href="{{url('/articleCategory')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Kategori Blog</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/blog')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Blog</a>
+                                    <a href="{{url('/article')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Blog</a>
                                 </li>
                                 <li>
                                     <a href="{{url('/kegiatan')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Kegiatan</a>
